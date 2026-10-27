@@ -1,0 +1,22 @@
+
+# Playwright
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
+
+# large generated fixture (regenerate with scripts, do not commit)
+fixtures/files/oversized-9mb.jpg
+
+# Local environment configuration (never commit real credentials)
+.env
+.env.local
+
+# Reports and specifications classified Internal — Confidential.
+# They contain live order numbers, customer names and admin screenshots.
+*.pdf
+
+# stray scratch image, not part of the suite
+Screenshot_*.jpg
