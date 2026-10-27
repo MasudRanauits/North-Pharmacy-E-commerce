@@ -1,4 +1,16 @@
+import fs from 'node:fs';
 import { defineConfig, devices } from '@playwright/test';
+
+/**
+ * Load `.env` when it is there.
+ *
+ * The environment URL and every credential come from environment variables so
+ * that none of them live in the repository, and `.env` is gitignored. Without
+ * this the documented "copy .env.example to .env" step would quietly do
+ * nothing, because Playwright does not read .env on its own. Uses the Node
+ * built-in, so the suite stays dependency-free.
+ */
+if (fs.existsSync('.env')) process.loadEnvFile('.env');
 
 /**
  * North Pharmacy — Playwright configuration.

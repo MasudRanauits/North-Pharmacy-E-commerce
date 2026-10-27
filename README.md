@@ -52,7 +52,28 @@ straight into the Actual Result column.
 ```bash
 npm install
 npx playwright install
+
+cp .env.example .env          # then fill it in — see below
+node scripts/make-fixtures.mjs  # generates the 9 MB upload fixture
 ```
+
+### Configuration
+
+No environment URL and no credentials are committed, so the suite cannot be
+pointed at anyone's installation by accident. `playwright.config.ts` loads
+`.env` on start-up; every variable is documented in
+[`.env.example`](.env.example). At minimum set `BASE_URL`, `TEST_USER`,
+`TEST_PASSWORD`, `ADMIN_USER` and `ADMIN_PASSWORD`.
+
+Without them the run stops immediately with a message saying so, rather than
+failing later at the sign-in form.
+
+> **Quote any value containing `#`.** A bare `#` starts a comment, so
+> `TEST_PASSWORD=abc#123` is read as `abc`. Write `TEST_PASSWORD='abc#123'`.
+
+`scripts/make-fixtures.mjs` rebuilds `fixtures/files/oversized-9mb.jpg`, which
+is 9 MB of padding and is deliberately not committed. The one case that uses
+it skips with an explanation when it is missing.
 
 ## Running
 
