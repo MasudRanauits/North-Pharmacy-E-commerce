@@ -14,9 +14,9 @@ fixtures/files/oversized-9mb.jpg
 .env
 .env.local
 
-# Reports and specifications classified Internal — Confidential.
-# They contain live order numbers, customer names and admin screenshots.
-*.pdf
+# The QA documents in documents/ are committed. They are classified
+# Internal — Confidential and carry live order numbers, customer names and
+# admin screenshots, so this repository must stay private.
 
 # stray scratch image, not part of the suite
 Screenshot_*.jpg
